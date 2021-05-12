@@ -56,24 +56,26 @@
 	<!-- end the card  -->
 	
 	<%
-	System.out.println(request.getParameter("code"));
-	System.out.println(request.getParameter("name"));
-	System.out.println(request.getParameter("price"));
-	System.out.println(request.getParameter("description"));
+	//System.out.println(request.getParameter("code"));
+	//System.out.println(request.getParameter("name"));
+	//System.out.println(request.getParameter("price"));
+	//System.out.println(request.getParameter("description"));
 	if(request.getParameter("code")!= null){
 		String 	stsMsg = "";
-		System.out.println(request.getParameter("code"));
-		
+		//System.out.println(request.getParameter("code"));
+		//Save ==================================== 
 		if(request.getParameter("hidIDItemIDSave") == ""){
 			stsMsg = it.inserItem(request.getParameter("code"), request.getParameter("name"), request.getParameter("price"), request.getParameter("description"));
+			System.out.println(stsMsg);
 			/*stsMsg = it.insertIte(request.getParameter("code"),  */
 					//request.getParameter("name"), request.getParameter("price"), 
 					//request.getParameter("description"));
 			
 		}
 		else{
-			//update
-			
+			//update ==============
+			stsMsg = it.updateItem(request.getParameter("hidIDItemIDSave"), request.getParameter("code"), request.getParameter("name"), request.getParameter("price"), request.getParameter("description"));
+			System.out.println(stsMsg);
 		}
 		session.setAttribute("statusMsg", stsMsg);
 	}
