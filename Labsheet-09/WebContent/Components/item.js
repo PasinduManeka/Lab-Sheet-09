@@ -58,6 +58,14 @@ $(document).on("click", "#bntSave", function(event){
 	
 });
 
+//update
+$(document).on("click",".btnUpdate", function(event){
+	$("#hidIDItemIDSave").val($(this).closest("tr").find('#hidItemIDUpdate').val());
+	$("#code").val($(this).closest("tr").find('td:eq(1)').text());
+	$("#name").val($(this).closest("tr").find('td:eq(2)').text());
+	$("#price").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#description").val($(this).closest("tr").find('td:eq(4)').text());
+});
 
 
 
