@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-   <%@page import=com.Item %>
+<%@page import="com.Item" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,8 +44,8 @@
 				<div class="col-12" id="colItem">
 					<%
 					Item it  = new Item();
-					System.out.print(it.readItems());
-					%>>
+					out.print(it.readItems());
+					%>
 				</div>
 			</div>
 		</div>
