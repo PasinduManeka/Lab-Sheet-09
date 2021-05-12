@@ -78,42 +78,52 @@ public class Item {
 		return output;
 	}
 	
-	public String insertIte(String code, String name, String price, String description) {
+	public String inserItem(String code, String name, String price, String description) {
+		String output="";
+		
+		try {
+			//Database Connection
+			Connection con = connect();
+			if(con == null) {
+				return "While connecting to the database for inserting.";
+			}
+			
+			//SQL query
+			String sql = ("insert into product (code,name,price,description) values (?,?,?,?)");
+			PreparedStatement pdstm = con.prepareStatement(sql);
+			
+			//bind values
+			pdstm.setString(1, code);
+			pdstm.setString(2, name);
+			pdstm.setString(3, price);
+			pdstm.setString(4, description);
+			
+			//Execute the statement
+			pdstm.executeUpdate();
+			con.setAutoCommit(false);
+			con.commit();
+			output="Inserted successfully";
+			
+			
+		}catch(Exception e) {
+			output ="Error while inserting the data";
+			System.err.append("This is the error in insert:"+e.getMessage());
+		}
+		
+		return output;
+		
+	}
+	
+	public String updateItem(String id, String code, String name, String price, String description) {
 		String output = "";
 		
 		try {
 			
-			Connection con = null;
-			
-			//check database connection
-			if(con == null){
-				return "Error while connecting to the database for insert data.";
-			}
-			
-			//SQL query
-			String query = "insert into product (code,name,price,description) values(?,?,?,?)";
-			PreparedStatement psdms = con.prepareStatement(query);
-			
-			//binding values
-			psdms.setString(1, code);
-			psdms.setString(2, name);
-			psdms.setString(3, price);
-			psdms.setString(4, description);
-			
-			//execute the statement
-			psdms.executeUpdate();
-			con.setAutoCommit(false);
-			con.commit();
-			output = "Inserted Successfully";
-			
-			
 		}catch(Exception e) {
-			output ="Error while inserting the item details.";
-			System.err.println("This is the error:"+e.getMessage());
+			output= "Error while updating the item details.";
 		}
 		
 		return output;
-				
 	}
 	
 }

@@ -23,13 +23,13 @@
 			<!-- start the form -->
 			<form id="formItem" name="formItem" method="post" action="Items.jsp">
 				Item Code:
-				<input type="text" name="itemCode" id="itemCode" class="form-control border border-primary form-control-sm"><br>
+				<input type="text" name="code" id="code" class="form-control border border-primary form-control-sm"><br>
 				Item Name:
-				<input type="text" name="itemName" id="itemName" class="form-control border border-primary form-control-sm"><br>
+				<input type="text" name="name" id="name" class="form-control border border-primary form-control-sm"><br>
 				Item Price:
-				<input type="text" name="itemPrice" id="itemPrice" class="form-control border border-primary form-control-sm"><br>
+				<input type="text" name="price" id="price" class="form-control border border-primary form-control-sm"><br>
 				Item Description:
-				<input type="text" name="itemDesc" id="itemDesc" class="form-control border border-primary form-control-sm"><br>
+				<input type="text" name="description" id="description" class="form-control border border-primary form-control-sm"><br>
 				
 				<div id="alertSuccess" class="alert alert-success"></div><br>
 				<div id="alertDanger" class="alert alert-danger"></div><br>
@@ -56,18 +56,26 @@
 	<!-- end the card  -->
 	
 	<%
-	if(request.getParameter("itemCode")!=null){
+	System.out.println(request.getParameter("code"));
+	System.out.println(request.getParameter("name"));
+	System.out.println(request.getParameter("price"));
+	System.out.println(request.getParameter("description"));
+	if(request.getParameter("code")!= null){
 		String 	stsMsg = "";
+		System.out.println(request.getParameter("code"));
 		
 		if(request.getParameter("hidIDItemIDSave") == ""){
-			stsMsg = it.insertIte(request.getParameter("itemCode"), 
-					request.getParameter("itemName"), request.getParameter("itemPrice"), 
-					request.getParameter("itemDesc"));
+			stsMsg = it.inserItem(request.getParameter("code"), request.getParameter("name"), request.getParameter("price"), request.getParameter("description"));
+			/*stsMsg = it.insertIte(request.getParameter("code"),  */
+					//request.getParameter("name"), request.getParameter("price"), 
+					//request.getParameter("description"));
+			
 		}
 		else{
 			//update
 			
 		}
+		session.setAttribute("statusMsg", stsMsg);
 	}
 	%>
 	
