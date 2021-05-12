@@ -84,11 +84,21 @@
 		request.getParameter("code").contentEquals("");
 		request.getParameter("price").contentEquals("");
 		request.getParameter("description").contentEquals("");
+		
 		session.setAttribute("statusMsg", stsMsg);
 		
-		
-		
 	}
+	
+	//Delete
+		if(request.getParameter("hidItemIDDelete") != null){
+			Item itDelete = new Item();
+			System.out.print(request.getParameter("hidItemIDDelete"));
+			String stsMsg="";
+			stsMsg = itDelete.deleteItem(request.getParameter("hidItemIDDelete"));
+			//stsMsg=it.deleteItem(request.getParameter("hidItemIDDelete"));
+			
+			session.setAttribute("statusMsg", stsMsg);
+		}
 	%>
 	
 </body>
