@@ -40,7 +40,7 @@
 			</form><br>
 			<!-- end the form -->
 			<!--  Display the HTML table -->
-			<div class="row">
+			<div class="row container ">
 				<div class="col-12" id="colItem">
 					<%
 					Item it  = new Item();
@@ -48,9 +48,16 @@
 					%>
 				</div>
 			</div>
+			<!-- End display the HTML  -->
 		</div>
 		<!-- end the card body -->
+		
 	</div>
 	<!-- end the card  -->
+	
+	<%
+	
+	%>
+	
 </body>
 </html>
