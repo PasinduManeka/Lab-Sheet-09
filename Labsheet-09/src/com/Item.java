@@ -43,11 +43,11 @@ public class Item {
 			
 			//iterate through the rows in the result set
 			while(rs.next()) {
-				String itemID = Integer.toString(rs.getInt("itemID")); 
-				String itemCode = rs.getString("itemCode"); 
-				String itemName = rs.getString("itemName"); 
-				String itemPrice = rs.getString("itemPrice"); 
-				String itemDesc = rs.getString("itemDesc");
+				String itemID = Integer.toString(rs.getInt("id")); 
+				String itemCode = rs.getString("code"); 
+				String itemName = rs.getString("name"); 
+				String itemPrice = rs.getString("price"); 
+				String itemDesc = rs.getString("description");
 				
 				//add into HTML table
 				output += "<tr><td>" + itemCode + "</td>"; 
