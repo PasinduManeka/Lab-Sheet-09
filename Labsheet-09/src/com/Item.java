@@ -32,7 +32,7 @@ public class Item {
 				return "error while connecting to the database for reading.";
 			}
 			//prepare the HTML table
-			output = "<table border='1'><tr><th>Item Code</th><th>Item Name</th>" +
+			output = "<table border='1'><tr><th>id</th><th>Item Code</th><th>Item Name</th>" +
 					"<th>Item Price</th>" +  
 					"<th>Item Description</th>" +
 					"<th>Update</th><th>Remove</th></tr>";
@@ -51,15 +51,16 @@ public class Item {
 				String itemDesc = rs.getString("description");
 				
 				//add into HTML table
-				output += "<tr><td>" + itemCode + "</td>"; 
+				output += "<tr><td><input type='hidden' id='hidItemIDUpdate' name='hidItemIDUpdate' value='"+itemID+"'>"+itemID+"</td>";
+				output += "<td>" + itemCode + "</td>"; 
 				output += "<td>" + itemName + "</td>"; 
 				output += "<td>" + itemPrice + "</td>"; 
 				output += "<td>" + itemDesc + "</td>"; 
 				
 				//buttons
-				output += "<td><form method='post' action='Items.jsp'>"
-							+"<input name='btnUpdate' type='button' value='Update' class='btn btn-secondary'>"
-							+ "<input name='itemID' type='hidden' value='" + itemID+ "'>"+"</form></td>"+ 
+				output += "<td>"
+							+"<input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'>"
+							+"</td>"+ 
 							"<td><form method='post' action='Items.jsp'>"+ 
 							"<input name='btnRemove' type='submit' value='Remove'  class='btn btn-danger'>"+ 
 							"<input name='itemID' type='hidden' value='" + itemID+ "'>" + "</form></td></tr>";
