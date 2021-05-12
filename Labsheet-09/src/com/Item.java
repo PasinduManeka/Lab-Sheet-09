@@ -118,9 +118,33 @@ public class Item {
 		String output = "";
 		
 		try {
+			//check the database connection
+			Connection con = connect();
+			if(con == null) {
+				return "Error while connectintg to the database for update the records.";
+			}
+			
+			String sql = "update product set code=? , name=?, price=?, description=? where id=? ";
+			PreparedStatement pd = con.prepareStatement(sql);
+			
+			//bind values
+			pd.setString(1, code);
+			pd.setString(2, name);
+			pd.setString(3, price);
+			pd.setString(4, description);
+			pd.setInt(5,Integer.parseInt(id));
+			
+			//execute the statment
+			pd.executeUpdate();
+			con.setAutoCommit(false);
+			con.commit();
+			output="Updated successfuly";
+			
+			
 			
 		}catch(Exception e) {
 			output= "Error while updating the item details.";
+			System.err.println("This is the error in update:"+e.getMessage());
 		}
 		
 		return output;
