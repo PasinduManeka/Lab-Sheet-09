@@ -35,7 +35,7 @@ function validationItemForm(){
 }
 
 //Save
-$(document).on("click", "#btnSave", function(event){
+$(document).on("click", "#bntSave", function(event){
 	//clear alerts
 	$("#alertSuccess").text("");
 	$("#alertSuccess").hide();
@@ -47,6 +47,7 @@ $(document).on("click", "#btnSave", function(event){
 	if(status != true){
 		$("#alertDanger").text(status);
 		$("#alertDanger").show();
+		return;	
 	}
 	
 	//if valid
