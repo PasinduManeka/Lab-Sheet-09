@@ -21,7 +21,7 @@
 		<!-- start the card body -->
 		<div class="card-body container border border-info">
 			<!-- start the form -->
-			<form id="formItem" name="formItem" method="post" action="items.jsp">
+			<form id="formItem" name="formItem" method="post" action="Items.jsp">
 				Item Code:
 				<input type="text" name="itemCode" id="itemCode" class="form-control border border-primary form-control-sm"><br>
 				Item Name:
