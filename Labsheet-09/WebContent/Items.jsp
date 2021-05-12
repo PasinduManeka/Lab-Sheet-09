@@ -56,7 +56,19 @@
 	<!-- end the card  -->
 	
 	<%
-	
+	if(request.getParameter("itemCode")!=null){
+		String 	stsMsg = "";
+		
+		if(request.getParameter("hidIDItemIDSave") == ""){
+			stsMsg = it.insertIte(request.getParameter("itemCode"), 
+					request.getParameter("itemName"), request.getParameter("itemPrice"), 
+					request.getParameter("itemDesc"));
+		}
+		else{
+			//update
+			
+		}
+	}
 	%>
 	
 </body>
