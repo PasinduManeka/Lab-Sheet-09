@@ -2,6 +2,7 @@ package com;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -75,6 +76,44 @@ public class Item {
 		}
 		
 		return output;
+	}
+	
+	public String insertIte(String code, String name, String price, String description) {
+		String output = "";
+		
+		try {
+			
+			Connection con = null;
+			
+			//check database connection
+			if(con == null){
+				return "Error while connecting to the database for insert data.";
+			}
+			
+			//SQL query
+			String query = "insert into product (code,name,price,description) values(?,?,?,?)";
+			PreparedStatement psdms = con.prepareStatement(query);
+			
+			//binding values
+			psdms.setString(1, code);
+			psdms.setString(2, name);
+			psdms.setString(3, price);
+			psdms.setString(4, description);
+			
+			//execute the statement
+			psdms.executeUpdate();
+			con.setAutoCommit(false);
+			con.commit();
+			output = "Inserted Successfully";
+			
+			
+		}catch(Exception e) {
+			output ="Error while inserting the item details.";
+			System.err.println("This is the error:"+e.getMessage());
+		}
+		
+		return output;
+				
 	}
 	
 }
