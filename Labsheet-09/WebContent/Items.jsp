@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+   <%@page import=com.Item %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,9 +39,13 @@
 				<input type="hidden" id="hidIDItemIDSave" name="hidIDItemIDSave" value="">
 			</form><br>
 			<!-- end the form -->
+			<!--  Display the HTML table -->
 			<div class="row">
 				<div class="col-12" id="colItem">
-				
+					<%
+					Item it  = new Item();
+					System.out.print(it.readItems());
+					%>>
 				</div>
 			</div>
 		</div>
