@@ -11,23 +11,22 @@ $(document).ready(function(){
 //Form validation
 function validationItemForm(){
 	//code
-	if($("#itemCode").val().trim()==""){
+	if($("#code").val().trim()==""){
 		return "insert the item code.";
 	}
 	
 	//name
-	if($("#itemName").val().trim() == ""){
+	if($("#name").val().trim() == ""){
 		return "Insert the item name";
 	}
 	
 	//price
-	var itemPrice = $("#itemPrice").val().trim();
-	if(!$.isNumeric(itemPrice)){
+	if($("#price").val().trim()==""){
 		return "Insert a numeric value for item price";
 	}
 	
 	//description
-	if($("#itemDesc").val().trim() == ""){
+	if($("#description").val().trim() == ""){
 		return "Insert the item description";
 	}
 	
@@ -52,6 +51,10 @@ $(document).on("click", "#bntSave", function(event){
 	
 	//if valid
 	$("#formItem").submit();
+	/*var item = java();
+	$("#colItem").append(item);*/
+	$("#formItem")[0].reset();
+	
 	
 });
 
