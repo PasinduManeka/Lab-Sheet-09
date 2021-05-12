@@ -32,10 +32,10 @@ public class Item {
 				return "error while connecting to the database for reading.";
 			}
 			//prepare the HTML table
-			output = "<table border='1'><tr><th>id</th><th>Item Code</th><th>Item Name</th>" +
+			output = "<div class='table-wrapper-scroll-y my-custom-scrollbar'><table border='1' class='table'><thead class='thead-dark'><tr><th>id</th><th>Item Code</th><th>Item Name</th>" +
 					"<th>Item Price</th>" +  
 					"<th>Item Description</th>" +
-					"<th>Update</th><th>Remove</th></tr>";
+					"<th>Update</th><th>Remove</th></tr></thead>";
 			
 			//query
 			String query = "select * from product";
@@ -69,7 +69,7 @@ public class Item {
 			con.close();
 			
 			//HTML table is completed.
-			output +="</table>";
+			output +="</table></div>";
 			
 		}catch(Exception e) {
 			output = "Error while reading the items";
@@ -106,11 +106,12 @@ public class Item {
 			output="Inserted successfully";
 			
 			
+			
 		}catch(Exception e) {
 			output ="Error while inserting the data";
 			System.err.append("This is the error in insert:"+e.getMessage());
 		}
-		
+		//response.sendRedirect("confirmpage.jsp");
 		return output;
 		
 	}

@@ -10,6 +10,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="Components/item.js"></script>
 <link rel="stylesheet" href="./Views/bootstrap.min.css">
+<link rel="stylesheet" href="./Views/item.css">
 </head>
 <body>
 	<!-- start the card  -->
@@ -71,6 +72,7 @@
 					//request.getParameter("name"), request.getParameter("price"), 
 					//request.getParameter("description"));
 			
+			
 		}
 		else{
 			//update ==============
@@ -78,6 +80,13 @@
 			System.out.println(stsMsg);
 		}
 		session.setAttribute("statusMsg", stsMsg);
+		request.getParameter("hidIDItemIDSave").contentEquals("");
+		request.getParameter("name").contentEquals("");
+		request.getParameter("code").contentEquals("");
+		request.getParameter("price").contentEquals("");
+		request.getParameter("description").contentEquals("");
+		
+		
 	}
 	%>
 	
